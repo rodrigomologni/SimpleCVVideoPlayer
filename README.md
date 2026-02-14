@@ -1,4 +1,4 @@
-# SimpleCVVideoPlayer
+# CVVideoPlayerLite
 
 A lightweight [OpenCV](https://opencv.org/) video player designed to facilitate frame analysis.
 It features real-time on-screen data including timestamp, frame index, and playback performance.
