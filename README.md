@@ -6,7 +6,7 @@ It features real-time on-screen data including timestamp, frame index, and playb
 ```python
 import cv2 as cv
 
-from video_player import VideoPlayer, HSize
+from video_player import VideoPlayer, LSize
 
 player = VideoPlayer('../videos/5911716-hd_1920_1080_25fps.mp4')
 player.resize(LSize.SD)
