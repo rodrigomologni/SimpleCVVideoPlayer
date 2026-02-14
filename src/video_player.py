@@ -6,15 +6,15 @@ import time
 import cv2 as cv
 
 
-class HSize:
-    """Horizontal standard sizes."""
+class LSize:
+    """Landscape standard sizes."""
     SD = (720, 480)
     HD = (1280, 720)
     FHD = (1920, 1080)
 
 
-class VSize:
-    """Vertical standard sizes."""
+class PSize:
+    """Portrait standard sizes."""
     SD = (480, 720)
     HD = (720, 1280)
     FHD = (1080, 1920)
@@ -186,13 +186,13 @@ class VideoPlayer:
 
 def example_callback():
     player = VideoPlayer('../videos/5911716-hd_1920_1080_25fps.mp4')
-    player.resize(HSize.SD)
+    player.resize(LSize.SD)
     player.run(lambda image: cv.cvtColor(image, cv.COLOR_BGR2GRAY))
 
 
 def example_start():
     player = VideoPlayer('../videos/5911716-hd_1920_1080_25fps.mp4')
-    player.resize(HSize.SD)
+    player.resize(LSize.SD)
     player.run(start=1000)
 
 

@@ -9,7 +9,7 @@ import cv2 as cv
 from video_player import VideoPlayer, HSize
 
 player = VideoPlayer('../videos/5911716-hd_1920_1080_25fps.mp4')
-player.resize(HSize.SD)
+player.resize(LSize.SD)
 player.run()
 ```
 
@@ -18,7 +18,7 @@ player.run()
 ## Features
 
 1. Resize OpenCV windows to SD, HD, or FHD resolutions (landscape or portrait).
-Example: `player.resize(HSize.SD)`.
+Example: `player.resize(LSize.SD)`.
 2. Callback support to handle external routines.
 Example: `player.run(lambda image: cv.cvtColor(image, cv.COLOR_BGR2GRAY))`.
 3. Start video playback from a specific timestamp.
