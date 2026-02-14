@@ -157,7 +157,7 @@ class VideoPlayer:
                 key = cv.waitKeyEx(delay)
                 if key == Key.SPACE:
                     delay = 0 if delay > 0 else int(1000 / fps)
-                    if index == num_frames: self._video.set(cv.CAP_PROP_POS_FRAMES, 0)
+                    if index >= num_frames: self._video.set(cv.CAP_PROP_POS_FRAMES, 0)
                     break
                 if key == Key.ARROW_LEFT:
                     delay = 0
