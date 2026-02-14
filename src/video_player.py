@@ -126,17 +126,22 @@ class VideoPlayer:
         _, image = self._video.read()
         callback(image)
 
-    def run(self, callback=None):
+    def run(self, callback=None, start=None):
         """Loads and displays the video by applying the callback function to the frames.
 
         Parameters
         ----------
         callback : function, optional
             A callback function that receives and returns an OpenCV image.
+        start : int, optional.
+            Video start time, in milliseconds.
         """
         num_frames = int(self._video.get(cv.CAP_PROP_FRAME_COUNT))
         fps = self._video.get(cv.CAP_PROP_FPS)
         delay = 0
+
+        if start:
+            self._video.set(cv.CAP_PROP_POS_MSEC, start)
 
         while cv.getWindowProperty(self._winname, cv.WND_PROP_VISIBLE) == 1:
             retval, image = self._video.read()
@@ -179,11 +184,17 @@ class VideoPlayer:
         self._video.release()
 
 
-def example():
+def example_callback():
     player = VideoPlayer('../videos/5911716-hd_1920_1080_25fps.mp4')
     player.resize(HSize.SD)
     player.run(lambda image: cv.cvtColor(image, cv.COLOR_BGR2GRAY))
 
 
+def example_start():
+    player = VideoPlayer('../videos/5911716-hd_1920_1080_25fps.mp4')
+    player.resize(HSize.SD)
+    player.run(start=1000)
+
+
 if __name__ == '__main__':
-    example()
+    example_start()
