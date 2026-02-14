@@ -165,7 +165,6 @@ class VideoPlayer:
                     break
                 if key == Key.ARROW_RIGHT:
                     delay = 0
-                    self._video.set(cv.CAP_PROP_POS_FRAMES, index)
                     break
                 if key == Key.ARROW_DOWN:
                     delay = 0
